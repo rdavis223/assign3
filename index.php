@@ -35,8 +35,10 @@ function displayData(){
 	mysqli_free_result($result);
 	echo "</ol>";
 	}
+	displayData();
 
 ?>
+displayData();
 
 
 </td>
