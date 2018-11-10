@@ -24,7 +24,7 @@ function displayData(){
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<li>";
 		echo "<a href='myPage.php?";
-		echo "'ID'=";
+		echo "&#34;ID&#34;=";
 		echo $row['customerID'];
 		echo "'>";
 		echo $row;
@@ -38,7 +38,6 @@ function displayData(){
 	displayData();
 
 ?>
-displayData();
 
 
 </td>
