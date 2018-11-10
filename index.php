@@ -27,7 +27,7 @@ function displayData(){
 		echo "&#34;ID&#34;=";
 		echo $row['customerID'];
 		echo "'>";
-		echo $row;
+		echo implode(",", $row);
 		echo "</a>";
 		echo "</li>";
 		
