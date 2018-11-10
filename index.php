@@ -3,9 +3,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>First Item</title>
-<?php
-include 'connectdb.php';
-?> 
 <link href="assign3.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -17,7 +14,7 @@ include 'connectdb.php';
 
 
 function displayData(){
-	
+	include 'connectdb.php';
 	$query = "SELECT * FROM customer ORDER BY lastName";
 	$result = mysqli_query($connection,$query);
 	if (!$result) {
