@@ -15,7 +15,7 @@
 function displayCustomerData(){
 	include 'connectdb.php';
 	if (isset($_GET)){
-		$query = "SELECT description FROM purchase WHERE customerID =".$_GET["ID"];
+		$query = "SELECT description FROM purchase WHERE customerID =".$_GET;
 		$result = mysqli_query($connection,$query);
 		if (!$result) {
 		 die("databases query failed.");
@@ -42,7 +42,6 @@ function displayData(){
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<li>";
 		echo "<a href='myPage.php?";
-		echo "ID=";
 		echo $row['customerID'];
 		echo "'>";
 		echo implode(",", $row);
