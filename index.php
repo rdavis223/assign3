@@ -14,7 +14,7 @@
 
 function displayCustomerData(){
 	include 'connectdb.php';
-	if (isset($_GET)){
+	if (isset($_GET["name"])){
 		$query = "SELECT description FROM product INNER JOIN purchase ON product.productID = purchase.productID WHERE customerID = 31";
 		$result = mysqli_query($connection,$query);
 		if (!$result) {
@@ -41,7 +41,7 @@ function displayData(){
 	echo "<ol>";
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<li>";
-		echo "<a href='index.php?";
+		echo "<a href='index.php?name=";
 		echo $row['customerID'];
 		echo "'>";
 		echo implode(",", $row);
