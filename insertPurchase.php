@@ -24,7 +24,7 @@ function insert(){
 			if (!$result){
 				echo mysqli_error($connection);
 			} else {
-				echo "Added Successfully";
+				echo "Added Successfully ";
 			}
 			
 		} else {
