@@ -15,7 +15,7 @@
 function displayCustomerData(){
 	include 'connectdb.php';
 	if (isset($_GET["name"])){
-		$query = "SELECT description FROM product INNER JOIN purchase ON product.productID = purchase.productID WHERE customerID = 31";
+		$query = "SELECT description FROM product INNER JOIN purchase ON product.productID = purchase.productID WHERE customerID = ".$_GET["name"];
 		$result = mysqli_query($connection,$query);
 		if (!$result) {
 		 die("databases query failed.");
