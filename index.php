@@ -14,6 +14,7 @@
 
 function displayCustomerData(){
 	include 'connectdb.php';
+	echo $_GET;
 	if (isset($_GET)){
 		$query = "SELECT description FROM product INNER JOIN purchase ON product.productID = purchase.productID WHERE customerID =".$_GET;
 		$result = mysqli_query($connection,$query);
