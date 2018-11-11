@@ -47,7 +47,7 @@ function displayData(){
 	echo "<ol>";
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<li>";
-		echo "<a href='index.php?name=";
+		echo "<a href='cInfo.php?name=";
 		echo $row['customerID'];
 		echo "'>";
 		echo implode(",", $row);
