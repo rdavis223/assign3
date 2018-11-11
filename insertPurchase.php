@@ -18,7 +18,6 @@ function insert(){
 		$query = "SELECT * FROM purchase WHERE productID = ".$_POST["productID"]." and customerID = ".$_POST["customerID"];
 		$result = mysqli_query($connection,$query);
 		if ($result->num_rows == 0 || !$result) {
-		 	echo "im here";
 			$query = "INSERT INTO purchase VALUES(".$_POST["productID"].",".$_POST["customerID"].",".$_POST["quantity"].")";
 			$result = mysqli_query($connection,$query);
 			if (!$result){
@@ -28,12 +27,17 @@ function insert(){
 			}
 			
 		} else {
-			$query = "UPDATE purchase SET quantity = quantity + ".$_POST["quantity"]." WHERE customerID = ".$_POST["customerID"]." and productID = ".$_POST["productID"];
-			$result = mysqli_query($connection,$query);
-			if (!$result){
-				echo mysqli.error($connection);
-			} else {
-				echo "Updated successfully";
+			if ($_POST["quantity"] > 0){
+				$query = "UPDATE purchase SET quantity = quantity + ".$_POST["quantity"]." WHERE customerID = ".$_POST["customerID"]." and productID = ".$_POST["productID"];
+				$result = mysqli_query($connection,$query);
+				if (!$result){
+					echo mysqli.error($connection);
+				} else {
+					echo "Updated successfully";
+				}
+			}
+			else {
+				echo "Quantity cannot be negative";
 			}
 			
 		
