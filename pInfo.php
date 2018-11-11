@@ -29,10 +29,10 @@ function displayData(){
 	include 'connectdb.php';
 	$query = "";
 	if (!isset($_POST["orderBy"])){
-		echo "reached";
 		$query = "SELECT * FROM product ORDER BY cost ASC";
 	} 
 	else {
+		echo "Sorting by ".$_POST["sortBy"]."|Ordering By: ".$_POST["orderBy"];
 		$query = "SELECT * FROM product ORDER BY ".$_POST[sortBy]." ".$_POST[orderBy];
 	}
 	$result = mysqli_query($connection,$query);
