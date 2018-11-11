@@ -14,7 +14,7 @@
 	
 	<form action="pInfo.php" method = "post">
   <select name="sortBy">
-    <option value="price">Price</option>
+    <option value="cost">Price</option>
     <option value="description">Description</option>
   </select>
    <select name="orderBy">
@@ -30,7 +30,7 @@ function displayData(){
 	$query = "";
 	if (!isset($_POST["orderBy"])){
 		echo "reached";
-		$query = "SELECT * FROM product ORDER BY price ASC";
+		$query = "SELECT * FROM product ORDER BY cost ASC";
 	} 
 	else {
 		$query = "SELECT * FROM product ORDER BY ".$_POST[sortBy]." ".$_POST[orderBy];
