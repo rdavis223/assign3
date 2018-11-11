@@ -15,6 +15,7 @@
 function insert(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
+		echo "im here";
 		$query = "SELECT * FROM purchase WHERE productID = ".$_POST["productID"]." and customerID = ".$_POST["customerID"];
 		$result = mysqli_query($connection,$query);
 		if ($result->num_rows == 0 || !$result) {
