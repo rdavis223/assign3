@@ -13,6 +13,7 @@
     <td width="796"><?php
 
 function displayCustomerData(){
+	include 'connectdb.php';
 	if (isset($_GET)){
 		$query = "SELECT description FROM purchase WHERE customerID =".$_GET["ID"];
 		$result = mysqli_query($connection,$query);
