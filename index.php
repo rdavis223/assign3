@@ -25,7 +25,7 @@ function displayCustomerData(){
 		$first = 0;
 		while ($row =mysqli_fetch_assoc($result)) {
 			if ($row = null){
-				echo "reached"
+				echo "reached";
 			}
 			if ($first == 0 && $row == null){
 				echo "No products found";
