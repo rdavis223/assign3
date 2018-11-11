@@ -21,6 +21,11 @@ function displayCustomerData(){
 		 die("databases query failed.");
 		 
 	}
+		echo "<h1>Customer has purchased the following products: </h1>";
+		if ($row == null){
+		
+			echo "No products found";
+		}
 		while ($row =mysqli_fetch_assoc($result)) {
 			echo "<li>";
 			echo $row["description"];
