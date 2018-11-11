@@ -22,7 +22,7 @@ function insert(){
 		 	$query = "INSERT INTO purchase VALUES (".$_POST["purchaseID"].",".$_POST["customerID"].",".$_POST["quantity"].")";
 			$result = mysqli_query($connection,$query);
 			if (!$result){
-				echo mysqli.error($connection);
+				echo mysqli_error($connection);
 			} else {
 				echo "Added Successfully";
 			}
