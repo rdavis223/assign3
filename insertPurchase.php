@@ -41,8 +41,8 @@ function insert(){
 		
 		
 	}
-	insert();
 }
+insert();
 
 ?>
 <form action="insertPurchase.php" method="post">
