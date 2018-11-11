@@ -12,6 +12,23 @@
     <td width="188" class="sidebar">Menu items will go here</td>
     <td width="796"><?php
 
+function displayCustomerData(){
+	if (isset($_GET)){
+		$query = "SELECT description FROM purchase WHERE customerID =".$_GET["ID"];
+		$result = mysqli_query($connection,$query);
+		if (!$result) {
+		 die("databases query failed.");
+		 
+	}
+		while ($row = mysqli_fetch_assoc($result)) {
+			echo "<li>";
+			echo $row["description"];
+			echo "</li>";
+		
+	}
+	}
+	
+}
 
 function displayData(){
 	include 'connectdb.php';
@@ -24,7 +41,7 @@ function displayData(){
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<li>";
 		echo "<a href='myPage.php?";
-		echo "&#34;ID&#34;=";
+		echo "ID=";
 		echo $row['customerID'];
 		echo "'>";
 		echo implode(",", $row);
@@ -35,6 +52,7 @@ function displayData(){
 	mysqli_free_result($result);
 	echo "</ol>";
 	}
+	displayCustomerData();
 	displayData();
 
 ?>
