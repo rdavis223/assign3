@@ -15,11 +15,11 @@
 function insert(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
-		echo "im here";
 		$query = "SELECT * FROM purchase WHERE productID = ".$_POST["productID"]." and customerID = ".$_POST["customerID"];
 		$result = mysqli_query($connection,$query);
 		if ($result->num_rows == 0 || !$result) {
-		 	$query = "INSERT INTO purchase VALUES (".$_POST["purchaseID"].",".$_POST["customerID"].",".$_POST["quantity"].")";
+		 	echo "im here";
+			$query = "INSERT INTO purchase VALUES(".$_POST["productID"].",".$_POST["customerID"].",".$_POST["quantity"].")";
 			$result = mysqli_query($connection,$query);
 			if (!$result){
 				echo mysqli_error($connection);
