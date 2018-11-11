@@ -24,6 +24,7 @@ function displayCustomerData(){
 		echo "<h1>Customer has purchased the following products: </h1>";
 		$first = 0;
 		while ($row =mysqli_fetch_assoc($result)) {
+			echo $row;
 			if ($first == 0 && $row == null){
 				echo "No products found";
 			}
