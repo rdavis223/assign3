@@ -21,7 +21,7 @@ function displayCustomerData(){
 		 die("databases query failed.");
 		 
 	}
-		while ($row = mysqli_fetch_assoc($result)) {
+		while ($row =mysqli_fetch_assoc($result)) {
 			echo "<li>";
 			echo $row["description"];
 			echo "</li>";
