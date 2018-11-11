@@ -29,6 +29,7 @@ function displayData(){
 	include 'connectdb.php';
 	$query = "";
 	if (!isset($_POST["orderBy"])){
+		echo "reached";
 		$query = "SELECT * FROM product ORDER BY price ASC";
 	} 
 	else {
