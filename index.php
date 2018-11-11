@@ -22,15 +22,17 @@ function displayCustomerData(){
 		 
 	}
 		echo "<h1>Customer has purchased the following products: </h1>";
+		$flag = 0;
 		while ($row =mysqli_fetch_assoc($result)) {
-			if ($row["description"] == NULL){
-				echo "No products found";
-			}
 			echo "<li>";
 			echo $row["description"];
 			echo "</li>";
+			$flag = 1;
 		
 	}
+		if ($flag == 0){
+			echo "No products found";
+		}
 	}
 	
 }
