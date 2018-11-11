@@ -30,6 +30,7 @@ function displayCustomerData(){
 			echo "<li>";
 			echo $row["description"];
 			echo "</li>";
+			$first = 1;
 		
 	}
 	}
