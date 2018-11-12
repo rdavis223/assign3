@@ -18,7 +18,7 @@
 	<?php
 function neverPurchased(){
 	include 'connectdb.php';
-	$query = "SELECT description, purchase.quantity, cost FROM purchase INNER JOIN product ON product.productID = purchase.productID WHERE productID = '".$_POST["productID"]."'";
+	$query = "SELECT description, purchase.quantity, cost FROM purchase INNER JOIN product ON product.productID = purchase.productID WHERE product.productID = '".$_POST["productID"]."'";
 	$result = mysqli_query($connection, $query);
 	if (!$result){
 		echo mysqli_error($connection);
