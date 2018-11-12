@@ -15,6 +15,7 @@
 function deleteCustomer(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
+		echo $_POST["customerID"];
 		$query = "DELETE FROM customer WHERE customerID = '".$_POST["customerID"]."'";
 		$result = mysqli_query($connection, $query);
 		if (!$result){
