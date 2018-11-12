@@ -20,6 +20,7 @@ function insert(){
 		if (!$result) {
 			echo mysqli_error($connection);
 		} else {
+			echo $_POST["customerID"];
 			echo "Insert successful";	
 		
 		}
