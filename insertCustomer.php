@@ -31,7 +31,7 @@ function insert(){
 insert();
 
 ?>
-<form action="insertPurchase.php" method="post">
+<form action="insertCustomer.php" method="post">
 customerID: <input type="text" name="customerID"><br>
 First Name: <input type="text" name="fistName"><br>
 Last Name: <input type="text" name="lastName"><br>
