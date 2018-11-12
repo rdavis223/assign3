@@ -48,13 +48,13 @@ function updatePhone(){
 
 }
 function display(){
-	echo "<form action=&#34;insertCustomer.php&#34; method=&#34;post&#34;>";
+	echo "<form action='insertCustomer.php'; method='post'>";
 	if (isset($_POST["customerID"])){
-		echo "New Phone Number: (without spaces or hyphens) <input type=&#34;text&#34; name=&#34;phone&#34;><br>";
+		echo "New Phone Number: (without spaces or hyphens) <input type='text' name='phone'><br>";
 	} else {
-		echo "customerID: <input type=&#34;text&#34; name=&#34;customerID&#34;><br>";
+		echo "customerID: <input type='text' name='customerID'><br>";
 	}
-	echo "<input type=&#34submit&#34></form>";
+	echo "<input type='submit'></form>";
 }
 session_start();
 getPhone();
