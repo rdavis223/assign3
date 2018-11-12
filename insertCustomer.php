@@ -18,7 +18,7 @@ function insert(){
 		$query = "INSERT INTO customer VALUES(".$_POST["customerID"].",".$_POST["firstName"].",".$_POST["lastName"].",".$_POST["city"].",".$_POST["agentID"].",".$_POST["phone"].")";
 		$result = mysqli_query($connection,$query);
 		if (!$result) {
-			echo mysqli.error($connection);
+			echo mysqli_error($connection);
 		} else {
 			echo "Insert successful";	
 		
