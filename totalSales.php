@@ -35,7 +35,7 @@ function totalSales(){
 					$totalCost = $totalCost + $row["cost"] * $row["quantity"];
 					$totalUnits = $totalUnits + $row["quantity"];
 			}
-			if ($desc = ""){
+			if ($desc == ""){
 				echo "No product found for productID";
 			
 			} else {
