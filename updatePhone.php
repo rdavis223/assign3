@@ -54,14 +54,13 @@ function display(){
 	} else {
 		echo "customerID: <input type=&#34;text&#34; name=&#34;customerID&#34;><br>";
 	}
-	echo "<input type=&#34;submit&#34;></form>";
+	echo "<input type=&#34submit&#34></form>";
 }
 session_start();
 getPhone();
 updatePhone();
 display();
 ?>
-
 
 
 </td>
