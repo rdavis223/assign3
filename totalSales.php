@@ -16,31 +16,34 @@
 	<input type="submit">
 	</form>
 	<?php
-function neverPurchased(){
-	include 'connectdb.php';
-	$query = "SELECT description, purchase.quantity, cost FROM purchase INNER JOIN product ON product.productID = purchase.productID WHERE product.productID = '".$_POST["productID"]."'";
-	$result = mysqli_query($connection, $query);
-	if (!$result){
-		echo mysqli_error($connection);
-	} else {
-			$totalCost = 0;
-			$totalUnits = 0;
-			$desc = "";
-			$row = mysqli_fetch_assoc($result);
-			$totalCost = $totalCost + $row["cost"] *$row["quantity"];
-			$totalUnits = $totalUnits + $row["quantity"];
-			$desc = $row["description"];
-			while ($row =mysqli_fetch_assoc($result)) {
-				$totalCost = $totalCost + $row["cost"] * $row["quantity"];
+function totalSales(){
+	if (isset($_POST["productID"])){
+		include 'connectdb.php';
+		$query = "SELECT description, purchase.quantity, cost FROM purchase INNER JOIN product ON product.productID = purchase.productID WHERE product.productID = '".$_POST["productID"]."'";
+		$result = mysqli_query($connection, $query);
+		if (!$result){
+			echo mysqli_error($connection);
+		} else {
+				$totalCost = 0;
+				$totalUnits = 0;
+				$desc = "";
+				$row = mysqli_fetch_assoc($result);
+				$totalCost = $totalCost + $row["cost"] *$row["quantity"];
 				$totalUnits = $totalUnits + $row["quantity"];
+				$desc = $row["description"];
+				while ($row =mysqli_fetch_assoc($result)) {
+					$totalCost = $totalCost + $row["cost"] * $row["quantity"];
+					$totalUnits = $totalUnits + $row["quantity"];
+			}
+			echo "<li>Product: ".$desc."</li>";
+			echo "<li>Units: ".$totalUnits."</li>";
+			echo "<li>Sales: $".$totalCost."</li>";
+				
 		}
-		echo "<li>Product: ".$desc."</li>";
-		echo "<li>Units: ".$totalUnits."</li>";
-		echo "<li>Sales: $".$totalCost."</li>";
-			
 	}
 }
-neverPurchased();
+
+totalSales();
 
 ?>
 
