@@ -48,7 +48,7 @@ function updatePhone(){
 
 }
 function display(){
-	echo "<form action='insertPhone.php'; method='post'>";
+	echo "<form action='updatePhone.php'; method='post'>";
 	if (isset($_POST["customerID"])){
 		echo "New Phone Number: (without spaces or hyphens) <input type='text' name='phone'><br>";
 	} else {
