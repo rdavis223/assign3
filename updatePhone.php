@@ -31,6 +31,7 @@ function getPhone(){
 	}
 }
 function updatePhone(){
+	include 'connectdb.php';
 	if (isset($_POST["phone"])){
 		$query = "UPDATE customer SET phone = '".$_POST["phone"]."' WHERE customerID = ".$_SESSION["customerID"];
 		$result = mysqli_query($connection,$query);
