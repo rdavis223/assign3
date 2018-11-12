@@ -14,7 +14,7 @@
 	<?php
 function neverPurchased(){
 	include 'connectdb.php';
-	$query = "SELECT description FROM product WHERE product.productID NOT IN (SELECT productID FROM purchase)";
+	$query = "SELECT description FROM product WHERE product.productID NOT IN (SELECT purchase.productID FROM purchase)";
 	$result = mysqli_query($connection, $query);
 	if (!$result){
 		echo mysqli_error($connection);
