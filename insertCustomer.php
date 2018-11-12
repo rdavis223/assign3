@@ -15,7 +15,7 @@
 function insert(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
-		$query = "INSERT INTO customer VALUES(".$_POST["customerID"].",".$_POST["firstName"].",".$_POST["lastName"].",".$_POST["city"].",".$_POST["agentID"].",".$_POST["phone"].")";
+		$query = "INSERT INTO customer VALUES (".$_POST["customerID"].",".$_POST["firstName"].",".$_POST["lastName"].",".$_POST["city"].",".$_POST["agentID"].",".$_POST["phone"].")";
 		$result = mysqli_query($connection,$query);
 		if (!$result) {
 			echo mysqli_error($connection);
@@ -33,7 +33,7 @@ insert();
 ?>
 <form action="insertCustomer.php" method="post">
 customerID: <input type="text" name="customerID"><br>
-First Name: <input type="text" name="fistName"><br>
+First Name: <input type="text" name="firstName"><br>
 Last Name: <input type="text" name="lastName"><br>
 City: <input type="text" name="city"><br>
 Phone: (With no hyphen or brackets) <input type="text" name="phone"><br>
