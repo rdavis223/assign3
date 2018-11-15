@@ -46,7 +46,7 @@ function getImage(){
 				echo "<li> Please paste the image URL below to set: </li>";
 				echo  ' <td width="796">
     <form action="bonus.php" method="post">
-	Enter Image URL: <input type="text" name="URL" onchange = "checkImage(this.value)"><br>
+	Enter Image URL: <input type="text" name="URL" oninput = "checkImage(this.value)"><br>
 	<input type="submit">
 	</form>';
 				echo '<div id="photo"> </div>';
