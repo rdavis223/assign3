@@ -108,6 +108,7 @@ function displayData(){
 	}
 	setImage();
 	getImage();
+	displayData();
 
 ?>
 
