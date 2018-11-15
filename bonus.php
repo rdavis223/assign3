@@ -41,7 +41,6 @@ function getImage(){
 		if (!$result) {
 		 	die("databases query failed.");
 		} else {
-			echo "made it";
 			$row = mysqli_fetch_assoc($result);
 			if ($row["cusImage"] == NULL) {
 				echo "<li> Please paste the image URL below to set: </li>";
@@ -64,6 +63,7 @@ function checkImage(val) {
 				
 			
 			} else {
+				echo "made it";
 				echo '<img src="'.$_POST["URL"].'">';
 
 			
