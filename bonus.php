@@ -22,6 +22,7 @@ function setImage(){
 		 	die("databases query failed.");
 		} else {
 			session_unset();
+			echo $_POST["URL"];
 			echo "Add sucessful";
 		}
 		
