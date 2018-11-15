@@ -33,7 +33,6 @@ function setImage(){
 function getImage(){
 	include 'connectdb.php';
 	if (isset($_GET["ID"])){
-		echo "made it";
 		session_start();
 		$_SESSION["ID"] = $_GET["ID"];
 		$query = "SELECT cusImage FROM customer WHERE customerID = '".$_GET["ID"]."'";
@@ -41,8 +40,9 @@ function getImage(){
 		if (!$result) {
 		 	die("databases query failed.");
 		} else {
+			echo "made it";
 			$row = mysqli_fetch_assoc($result);
-			if ($row["cusImage"] = NULL) {
+			if ($row["cusImage"] == NULL) {
 				echo "<li> Please paste the image URL below to set: </li>";
 				echo  ' <td width="796">
     <form action="bonus.php" method="post">
