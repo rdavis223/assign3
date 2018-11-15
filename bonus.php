@@ -21,7 +21,7 @@ function setImage(){
 		if (!$result) {
 		 	die("databases query failed.");
 		} else {
-			session_destroy();
+			session_unset();
 			echo "Add sucessful";
 		}
 		
@@ -33,7 +33,7 @@ function setImage(){
 function getImage(){
 	include 'connectdb.php';
 	if (isset($_GET["ID"])){
-		start_session();
+		session_start();
 		$_SESSION["ID"] = $_GET["ID"];
 		$query = "SELECT cusImage FROM customer WHERE customerID = '".$_GET["ID"]."'";
 		$result = mysqli_query($connection,$query);
