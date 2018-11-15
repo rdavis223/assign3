@@ -72,7 +72,7 @@ function checkImage(val) {
 	} else {
 		document.getElementById("photo").innerHTML = "&#34;invalid url";
 	}
-	checkImage("'.$row["cusImage"].'
+	checkImage("'.$row["cusImage"].')
 }
 </script>';
 
