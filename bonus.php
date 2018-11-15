@@ -64,7 +64,7 @@ function checkImage(val) {
 			
 			} else {
 				echo "made it";
-				echo '<img src="'.$_POST["URL"].'">';
+				echo '<img src="'.$row["cusImage"].'">';
 
 			
 			}
