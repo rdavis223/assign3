@@ -21,6 +21,7 @@ function setImage(){
 		if (!$result) {
 		 	die("databases query failed.");
 		} else {
+			echo $_SESSION["URL"];
 			session_unset();
 			echo $_POST["URL"];
 			echo "Add sucessful";
