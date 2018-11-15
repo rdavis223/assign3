@@ -34,7 +34,7 @@ function getImage(){
 	include 'connectdb.php';
 	if (isset($_GET["ID"])){
 		start_session();
-		$_SESSION["ID"];
+		$_SESSION["ID"] = $_GET["ID"];
 		$query = "SELECT cusImage FROM customer WHERE customerID = '".$_GET["ID"]."'";
 		$result = mysqli_query($connection,$query);
 		if (!$result) {
