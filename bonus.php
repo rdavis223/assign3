@@ -33,6 +33,7 @@ function setImage(){
 function getImage(){
 	include 'connectdb.php';
 	if (isset($_GET["ID"])){
+		echo "made it";
 		session_start();
 		$_SESSION["ID"] = $_GET["ID"];
 		$query = "SELECT cusImage FROM customer WHERE customerID = '".$_GET["ID"]."'";
