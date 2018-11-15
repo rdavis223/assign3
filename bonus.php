@@ -35,7 +35,6 @@ function setImage(){
 function getImage(){
 	include 'connectdb.php';
 	if (isset($_GET["ID"])){
-		session_start();
 		$_SESSION["ID"] = $_GET["ID"];
 		$query = "SELECT cusImage FROM customer WHERE customerID = '".$_GET["ID"]."'";
 		$result = mysqli_query($connection,$query);
@@ -109,6 +108,7 @@ function displayData(){
 	echo "</ol>";
 	}
 	}
+	session_start();
 	setImage();
 	getImage();
 	displayData();
