@@ -53,7 +53,7 @@ function getImage(){
 				echo  '<script>
 function checkImage(val) {
     if (val.match(/\.(jpeg|jpg|gif|png)$/) != null){
-		document.getElementById("photo").innerHTML = "'
+		document.getElementById("photo").innerHTML = "';
 		echo "<img src='";
 		echo '"' ;
 		echo '+ val +';
