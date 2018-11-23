@@ -17,6 +17,7 @@
 
 
 function setImage(){
+	$_SESSION["menu"] = 0;
 	include 'connectdb.php';
 	if(isset($_POST["URL"])){
 		$query = "UPDATE customer SET cusImage = '".$_POST["URL"]."' WHERE customerID = '".$_SESSION["ID"]."'";
@@ -46,7 +47,8 @@ function getImage(){
 		} else {
 			$row = mysqli_fetch_assoc($result);
 			if ($row["cusImage"] == NULL) {
-				echo "Please paste the image URL below to set: <br>";
+				$_SESSION["menu"] = 1;
+				echo "Please enter the image URL below to set: <br>";
 				echo  '
     <form action="addImage.php" method="post">
 	Enter Image URL: <input type="text" name="URL" oninput = "checkImage(this.value)"><br>
@@ -94,7 +96,7 @@ function checkImage(val) {
 
 function displayData(){
 	include 'connectdb.php';
-	if (!isset($_GET["ID"])){
+	if ($_SESSION["menu"] == 0){
 	$query = "SELECT * FROM customer ORDER BY lastName";
 	$result = mysqli_query($connection,$query);
 	if (!$result) {
