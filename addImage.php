@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<table width="1000" border="1">
+<table class = "center" width="1000" border="1">
   <tr>
     <td width="188" class="sidebar">
     <button class= "btn" onclick="location.href = 'cInfo.php';">Success</button>
