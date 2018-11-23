@@ -49,7 +49,7 @@ function getImage(){
 	Enter Image URL: <input type="text" name="URL" oninput = "checkImage(this.value)"><br>
 	<input type="submit">
 	</form>';
-				echo '<div id="photo"> </div>';
+				echo '<p id="photo"> </p>';
 				echo  '<script>
 function checkImage(val) {
     if (val.match(/\.(jpeg|jpg|gif|png)$/) != null){
