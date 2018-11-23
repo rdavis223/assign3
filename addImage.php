@@ -76,7 +76,7 @@ function checkImage(val) {
 		echo '"';
 		echo ";";
 		echo 'document.getElementById("submit").innerHTML = "';
-		echo '<input type=';
+		echo '<input type=' ;
 		echo "'submit'";
 		echo '>';
 		echo '";';
