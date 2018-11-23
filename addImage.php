@@ -10,7 +10,18 @@
 <table class = "center" width="1000" border="1">
   <tr>
     <td width="188" class="sidebar">
-    <button class= "btn" onclick="location.href = 'cInfo.php';">Success</button>
+    <button class= "btn" onclick="location.href = 'cInfo.php';">Customer Info</button>
+    <button class= "btn" onclick="location.href = 'deleteCustomer.php';">Delete Customer</button>
+    <button class= "btn" onclick="location.href = 'insertCustomer.php';">Insert Customer</button>
+    <button class= "btn" onclick="location.href = 'insertPurchase.php';">Insert Purchase</button>
+    <button class= "btn" onclick="location.href = 'pInfo.php';">Product Info</button>
+    <button class= "btn" onclick="location.href = 'neverPurchased.php';">Products never purchased</button>
+    <button class= "btn" onclick="location.href = 'quantitySearch.php';">Search purchases by quantity</button>
+    <button class= "btn" onclick="location.href = 'selectCustomer.php';">Purchases by customer</button>
+    <button class= "btn" onclick="location.href = 'totalSales.php';">Total Sales</button>
+    <button class= "btn" onclick="location.href = 'updatePhone.php';">Update Phone</button>
+    
+    
     
     </td>
     <td width="796"><?php
@@ -25,9 +36,7 @@ function setImage(){
 		if (!$result) {
 		 	die("databases query failed.");
 		} else {
-			echo $_SESSION["ID"];
 			session_unset();
-			echo $_POST["URL"];
 			echo "Photo added sucessfully";
 		}
 		
