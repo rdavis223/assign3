@@ -62,7 +62,9 @@ function checkImage(val) {
 		echo '"';
 		echo ";";
 		echo 'document.getElementById("submit").innerHTML = "';
-		echo '<input type="submit">';
+		echo '<input type=';
+		echo "'submit'";
+		echo '>';
 		echo '";';
 		echo '} else if (val.length > 100){
 		document.getElementById("photo").innerHTML = "URL too long to store, must be 100 characters or less";
