@@ -9,7 +9,10 @@
 <body>
 <table width="1000" border="1">
   <tr>
-    <td width="188" class="sidebar">Menu items will go here</td>
+    <td width="188" class="sidebar">
+    <button class= "btn" onclick="location.href = 'cInfo.php';">Success</button>
+    
+    </td>
     <td width="796"><?php
 
 
@@ -24,7 +27,7 @@ function setImage(){
 			echo $_SESSION["ID"];
 			session_unset();
 			echo $_POST["URL"];
-			echo "Add sucessful";
+			echo "Photo added sucessfully";
 		}
 		
 	}
@@ -43,7 +46,7 @@ function getImage(){
 		} else {
 			$row = mysqli_fetch_assoc($result);
 			if ($row["cusImage"] == NULL) {
-				echo "<li> Please paste the image URL below to set: </li>";
+				echo "Please paste the image URL below to set: <br>";
 				echo  '
     <form action="bonus.php" method="post">
 	Enter Image URL: <input type="text" name="URL" oninput = "checkImage(this.value)"><br>
