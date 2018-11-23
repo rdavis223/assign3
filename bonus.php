@@ -58,7 +58,9 @@ function checkImage(val) {
 		echo '"' ;
 		echo '+ val +';
 		echo '"';
-		echo "'>;";
+		echo "'>";
+		echo '"';
+		echo ";";
 	echo '} else {
 		document.getElementById("photo").innerHTML = "invalid url";
 	}
