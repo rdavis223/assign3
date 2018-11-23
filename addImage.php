@@ -48,7 +48,7 @@ function getImage(){
 			if ($row["cusImage"] == NULL) {
 				echo "Please paste the image URL below to set: <br>";
 				echo  '
-    <form action="bonus.php" method="post">
+    <form action="addImage.php" method="post">
 	Enter Image URL: <input type="text" name="URL" oninput = "checkImage(this.value)"><br>
 	<p id ="submit"></p>
 	</form>';
@@ -103,7 +103,7 @@ function displayData(){
 	echo "<ol>";
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<li>";
-		echo "<a href='bonus.php?ID=";
+		echo "<a href='addImage.php?ID=";
 		echo $row['customerID'];
 		echo "'>";
 		echo implode(",", $row);
