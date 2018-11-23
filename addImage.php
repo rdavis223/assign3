@@ -82,9 +82,11 @@ function checkImage(val) {
 		echo '";';
 		echo '} else if (val.length > 100){
 		document.getElementById("photo").innerHTML = "URL too long to store, must be 100 characters or less";
+	document.getElementById("submit").innerHTML = "";
 	}';
 	echo ' else {
 		document.getElementById("photo").innerHTML = "invalid url";
+		document.getElementById("submit").innerHTML = "";
 	}
 }
 </script>';
