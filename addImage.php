@@ -54,7 +54,7 @@ function getImage(){
 		if (!$result) {
 		 	die("databases query failed.");
 		} else {
-			$row = mysqli_fetch_assoc($result);
+			$row1 = mysqli_fetch_assoc($result);
 			if ($row1["cusImage"] == NULL) {
 				$_SESSION["menu"] = 1;
 				echo "Please enter the image URL below to set: <br>";
