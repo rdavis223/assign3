@@ -53,8 +53,13 @@ function getImage(){
 				echo  '<script>
 function checkImage(val) {
     if (val.match(/\.(jpeg|jpg|gif|png)$/) != null){
-		document.getElementById("photo").innerHTML = "<img src=&#34;" + val + "&#34;>";
-	} else {
+		document.getElementById("photo").innerHTML = "'
+		echo "<img src='";
+		echo '"' ;
+		echo '+ val +';
+		echo '"';
+		echo "'>;";
+	echo '} else {
 		document.getElementById("photo").innerHTML = "invalid url";
 	}
 }
@@ -63,7 +68,6 @@ function checkImage(val) {
 				
 			
 			} else {
-				echo "made it";
 				echo '<img src="'.$row["cusImage"].'">';
 
 			
