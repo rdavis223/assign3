@@ -44,7 +44,7 @@ function getImage(){
 			$row = mysqli_fetch_assoc($result);
 			if ($row["cusImage"] == NULL) {
 				echo "<li> Please paste the image URL below to set: </li>";
-				echo  ' <td width="796">
+				echo  '
     <form action="bonus.php" method="post">
 	Enter Image URL: <input type="text" name="URL" oninput = "checkImage(this.value)"><br>
 	<input type="submit">
