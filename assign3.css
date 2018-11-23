@@ -15,6 +15,9 @@
 	padding-bottom: 14px;
 	padding-left: 28px;
 }
+.main {
+	vertical-align: top;
+}
 
 .btn:hover {background: #eee; }
 

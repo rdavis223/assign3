@@ -24,7 +24,7 @@
     
     
     </td>
-    <td width="829"><?php
+    <td width="829" class = "main"><?php
 
 
 function setImage(){
