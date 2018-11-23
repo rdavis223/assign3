@@ -47,12 +47,12 @@ function getImage(){
 				echo  '
     <form action="bonus.php" method="post">
 	Enter Image URL: <input type="text" name="URL" oninput = "checkImage(this.value)"><br>
-	<input type="submit">
+	<p id ="submit"></p>
 	</form>';
 				echo '<p id="photo"> </p>';
 				echo  '<script>
 function checkImage(val) {
-    if (val.match(/\.(jpeg|jpg|gif|png)$/) != null){
+    if (val.match(/\.(jpeg|jpg|gif|png)$/) != null && val.length <= 100){
 		document.getElementById("photo").innerHTML = "';
 		echo "<img src='";
 		echo '"' ;
@@ -61,7 +61,13 @@ function checkImage(val) {
 		echo "'>";
 		echo '"';
 		echo ";";
-	echo '} else {
+		echo 'document.getElementById("submit").innerHTML = "';
+		echo '<input type="submit">';
+		echo '";';
+		echo '} else if (val.length > 100){
+		document.getElementById("photo").innerHTML = "URL too long to store, must be 100 characters or less";
+	}';
+	echo ' else {
 		document.getElementById("photo").innerHTML = "invalid url";
 	}
 }
