@@ -17,7 +17,7 @@
     <button class= "btn" onclick="location.href = 'pInfo.php';">Product Info</button>
     <button class= "btn" onclick="location.href = 'neverPurchased.php';">Products never purchased</button>
     <button class= "btn" onclick="location.href = 'quantitySearch.php';">Search purchases by quantity</button>
-    <button class= "btn" onclick="location.href = 'selectCustomer.php';">Purchases by customer</button>
+    <button class= "btn" onclick="location.href = 'addImage.php';">Add Image</button>
     <button class= "btn" onclick="location.href = 'totalSales.php';">Total Sales</button>
     <button class= "btn" onclick="location.href = 'updatePhone.php';">Update Phone</button>
     
@@ -85,7 +85,7 @@ function checkImage(val) {
 	document.getElementById("submit").innerHTML = "";
 	}';
 	echo ' else {
-		document.getElementById("photo").innerHTML = "invalid url";
+		document.getElementById("photo").innerHTML = "Invalid URL";
 		document.getElementById("submit").innerHTML = "";
 	}
 }
@@ -108,18 +108,19 @@ function checkImage(val) {
 function displayData(){
 	include 'connectdb.php';
 	if ($_SESSION["menu"] == 0){
-	$query = "SELECT * FROM customer ORDER BY lastName";
+	$query = "SELECT customerId, firstName, lastName, city, agentID, phone FROM customer ORDER BY lastName";
 	$result = mysqli_query($connection,$query);
 	if (!$result) {
 		 die("databases query failed.");
 	}
+	echo "Data displayed as customerId|firstName|lastName|city|agentID|phone";
 	echo "<ol>";
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<li>";
 		echo "<a href='addImage.php?ID=";
 		echo $row['customerID'];
 		echo "'>";
-		echo implode(",", $row);
+		echo implode("|", $row);
 		echo "</a>";
 		echo "</li>";
 		
