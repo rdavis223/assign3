@@ -24,7 +24,7 @@
     
     
     </td>
-    <td width="796"><?php
+    <td width="829"><?php
 
 
 function setImage(){
