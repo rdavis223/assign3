@@ -55,7 +55,7 @@ function getImage(){
 		 	die("databases query failed.");
 		} else {
 			$row = mysqli_fetch_assoc($result);
-			if ($row["cusImage"] == NULL) {
+			if ($row1["cusImage"] == NULL) {
 				$_SESSION["menu"] = 1;
 				echo "Please enter the image URL below to set: <br>";
 				echo  '
@@ -94,7 +94,7 @@ function checkImage(val) {
 				
 			
 			} else {
-				echo '<img src="'.$row["cusImage"].'">';
+				echo '<img src="'.$row1["cusImage"].'">';
 
 			
 			}
@@ -108,7 +108,7 @@ function checkImage(val) {
 function displayData(){
 	include 'connectdb.php';
 	if ($_SESSION["menu"] == 0){
-	$query = "SELECT * FROM customer ORDER BY lastName";
+	$query = "SELECT customerID FROM customer ORDER BY lastName";
 	$result = mysqli_query($connection,$query);
 	if (!$result) {
 		 die("databases query failed.");
