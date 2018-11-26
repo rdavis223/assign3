@@ -9,7 +9,7 @@
 <body>
 <table width="1000" border="1" class = "center">
   <tr>
-    <td width="188" class="sidebar"><button class= "btn" onclick="location.href = 'cInfo.php';">Customer Info</button>
+    <td width="188" class="sidebar"><button class= "btn" onclick="location.href = 'cInfo.php';">Customer Purchases</button>
     <button class= "btn" onclick="location.href = 'deleteCustomer.php';">Delete Customer</button>
     <button class= "btn" onclick="location.href = 'insertCustomer.php';">Insert Customer</button>
     <button class= "btn" onclick="location.href = 'insertPurchase.php';">Insert Purchase</button>
@@ -30,7 +30,7 @@ function displayCustomerData(){
 		 die("databases query failed.");
 		 
 	}
-		echo "<h1>Customer has purchased the following products: </h1>";
+		echo "Customer has purchased the following products: ";
 		$flag = 0;
 		while ($row =mysqli_fetch_assoc($result)) {
 			echo "<li>";
@@ -54,6 +54,7 @@ function displayData(){
 		 die("databases query failed.");
 	}
 	echo "Data displayed as customerId|firstName|lastName|city|agentID|phone";
+	echo "Please click a customer to display products they have purchased";
 	echo "<ol>";
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<li>";
