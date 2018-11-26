@@ -108,7 +108,7 @@ function checkImage(val) {
 function displayData(){
 	include 'connectdb.php';
 	if ($_SESSION["menu"] == 0){
-	$query = "SELECT customerID FROM customer ORDER BY lastName";
+	$query = "SELECT customerID, firstName, lastName, city, agentID, phone FROM customer ORDER BY lastName";
 	$result = mysqli_query($connection,$query);
 	if (!$result) {
 		 die("databases query failed.");
