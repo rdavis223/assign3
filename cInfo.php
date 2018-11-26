@@ -54,7 +54,7 @@ function displayData(){
 		 die("databases query failed.");
 	}
 	echo "Data displayed as customerId|firstName|lastName|city|agentID|phone";
-	echo "Please click a customer to display products they have purchased";
+	echo "<br> Please click a customer to display products they have purchased";
 	echo "<ol>";
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<li>";
