@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<table width="1000" border="1">
+<table width="1000" border="1" class = "center">
   <tr>
     <td width="188" class="sidebar"><button class= "btn" onclick="location.href = 'cInfo.php';">Customer Info</button>
     <button class= "btn" onclick="location.href = 'deleteCustomer.php';">Delete Customer</button>
@@ -19,7 +19,7 @@
     <button class= "btn" onclick="location.href = 'addImage.php';">Add Image</button>
     <button class= "btn" onclick="location.href = 'totalSales.php';">Total Sales</button>
     <button class= "btn" onclick="location.href = 'updatePhone.php';">Update Phone</button></td>
-    <td width="796"><?php
+    <td width="812" class = "main"><?php
 
 function displayCustomerData(){
 	include 'connectdb.php';

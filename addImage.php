@@ -24,7 +24,7 @@
     
     
     </td>
-    <td width="829" class = "main"><?php
+    <td width="812" class = "main"><?php
 
 
 function setImage(){
@@ -114,6 +114,7 @@ function displayData(){
 		 die("databases query failed.");
 	}
 	echo "Data displayed as customerId|firstName|lastName|city|agentID|phone";
+	echo" <br>Please click a customer to add or view a photo";
 	echo "<ol>";
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<li>";
