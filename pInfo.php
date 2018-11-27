@@ -48,7 +48,7 @@ function displayData(){
 	if (!$result) {
 		 die("databases query failed.");
 	}
-	echo "Data displayed as productID|description|cost|quantity";
+	echo "<br> Data displayed as productID|description|cost|quantity";
 	echo "<ol>";
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<li>";
