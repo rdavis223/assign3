@@ -24,12 +24,7 @@
 function insert(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
-		$query = "0";
-		if ($_POST["agentID"] == ""){
-			$query = "INSERT INTO customer VALUES ('".$_POST["customerID"]."','".$_POST["firstName"]."','".$_POST["lastName"]."','".$_POST["city"]."','"."NULL"."','".$_POST["phone"]."')";
-		} else {
 		$query = "INSERT INTO customer VALUES ('".$_POST["customerID"]."','".$_POST["firstName"]."','".$_POST["lastName"]."','".$_POST["city"]."','".$_POST["agentID"]."','".$_POST["phone"]."')";
-		}
 		$result = mysqli_query($connection,$query);
 		if (!$result) {
 			echo mysqli_error($connection);
@@ -53,7 +48,7 @@ First Name: <input type="text" name="firstName"><br>
 Last Name: <input type="text" name="lastName"><br>
 City: <input type="text" name="city"><br>
 Phone: (With hyphen. Example: 444-4444) <input type="text" name="phone"><br>
-AgentID: (Leaving blank will default to null) <input type="text" name="agentID"><br>
+AgentID: <input type="text" name="agentID"><br>
 <input type="submit">
 </form>
 
