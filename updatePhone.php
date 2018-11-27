@@ -63,7 +63,7 @@ function display(){
 		echo "Please enter new phone number for the customer <br>";
 		echo "New Phone Number: (without spaces or hyphens) <input type='text' name='phone'><br>";
 	} else {
-		echo "Please enter customerID below";
+		echo "Please enter customerID below <br>";
 		echo "customerID: <input type='text' name='customerID'><br>";
 	}
 	echo "<input type='submit'></form>";
