@@ -25,6 +25,7 @@ function insert(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
 		$query = "INSERT INTO customer VALUES ('".$_POST["customerID"]."','".$_POST["firstName"]."','".$_POST["lastName"]."','".$_POST["city"]."','".$_POST["agentID"]."','".$_POST["phone"]."')";
+		echo $query;
 		$result = mysqli_query($connection,$query);
 		if (!$result) {
 			echo mysqli_error($connection);
