@@ -24,17 +24,22 @@
 function deleteCustomer(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
-		$query = "DELETE FROM customer WHERE customerID = '".$_POST["customerID"]."'";
+		$query = "SELECT * FROM customer WHERE customerID = '".$_POST["customerID"]."'";
 		$result = mysqli_query($connection, $query);
-		$row = mysqli_fetch_assoc($result);
 		if (!$result){
 			echo mysqli_error($connection);
-		} else if ($row = FALSE){
-			echo ("customer id does not exist");
+		} else if (mysqli_num_rows($result) == 0){
+			echo "CustomerID does not exist";
+		} else {
 		
 		
+		$query2 = "DELETE FROM customer WHERE customerID = '".$_POST["customerID"]."'";
+		$result2 = mysqli_query($connection, $query);
+		if (!$result2){
+			echo mysqli_error($connection);
 		} else {
 			echo "Delete sucessful";
+		}
 		}
 		
 		
