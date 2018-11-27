@@ -34,10 +34,11 @@ function quantitySearch(){
 		if (!$result){
 			echo mysqli_error($connection);
 		} else {
+				echo "Data displayed as firstName|lastName|quantity|description <br>";
 				$flag = 0;
 				while ($row =mysqli_fetch_assoc($result)) {
 					echo "<li>";
-					echo implode(",",$row);
+					echo implode("|",$row);
 					echo "</li>";
 					$flag = 1;
 			

@@ -60,7 +60,7 @@ function updatePhone(){
 function display(){
 	echo "<form action='updatePhone.php'; method='post'>";
 	if (isset($_POST["customerID"])){
-		echo "Please enter new phone number for the customer";
+		echo "Please enter new phone number for the customer <br>";
 		echo "New Phone Number: (without spaces or hyphens) <input type='text' name='phone'><br>";
 	} else {
 		echo "Please enter customerID below";
