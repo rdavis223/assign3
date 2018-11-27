@@ -32,7 +32,7 @@ function deleteCustomer(){
 			echo ("customer id does not exist");
 		
 		
-		}else {
+		} else {
 			echo "Delete sucessful";
 		}
 		
