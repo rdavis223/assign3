@@ -24,7 +24,7 @@
 function insert(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
-		$query = "0"
+		$query = "0";
 		if ($_POST["agentID"] == ""){
 			$query = "INSERT INTO customer VALUES ('".$_POST["customerID"]."','".$_POST["firstName"]."','".$_POST["lastName"]."','".$_POST["city"]."','"."NULL"."','".$_POST["phone"]."')";
 		} else {
