@@ -2,15 +2,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>First Item</title>
+<title>Search purchases by quantity</title>
 <link href="assign3.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-<table width="1000" border="1">
+<table width="1000" border="1" class = "center">
   <tr>
-    <td width="188" class="sidebar">Menu items will go here</td>
-    <td width="796">
+    <td width="188" class="sidebar"><button class= "btn" onclick="location.href = 'cInfo.php';">Customer Purchases</button>
+    <button class= "btn" onclick="location.href = 'deleteCustomer.php';">Delete Customer</button>
+    <button class= "btn" onclick="location.href = 'insertCustomer.php';">Insert Customer</button>
+    <button class= "btn" onclick="location.href = 'insertPurchase.php';">Insert Purchase</button>
+    <button class= "btn" onclick="location.href = 'pInfo.php';">Product Info</button>
+    <button class= "btn" onclick="location.href = 'neverPurchased.php';">Products never purchased</button>
+    <button class= "btn" onclick="location.href = 'quantitySearch.php';">Search purchases by quantity</button>
+    <button class= "btn" onclick="location.href = 'addImage.php';">Add Image</button>
+    <button class= "btn" onclick="location.href = 'totalSales.php';">Total Sales</button>
+    <button class= "btn" onclick="location.href = 'updatePhone.php';">Update Phone</button></td>
+    <td width="812" class = "main">
+    <p>Please enter a quantity below. Any purchase above the given value will be displayed</p>
     <form action="quantitySearch.php" method="post">
 	quantity: <input type="text" name="quantity"><br>
 	<input type="submit">

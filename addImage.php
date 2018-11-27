@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>First Item</title>
+<title>Add Image</title>
 <link href="assign3.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -114,7 +114,7 @@ function displayData(){
 		 die("databases query failed.");
 	}
 	echo "Data displayed as customerId|firstName|lastName|city|agentID|phone";
-	echo" <br>Please click a customer to add or view a photo";
+	echo" <br> Please click a customer to add or view a photo";
 	echo "<ol>";
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<li>";
