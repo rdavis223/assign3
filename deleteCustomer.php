@@ -26,9 +26,10 @@ function deleteCustomer(){
 	if (isset($_POST["customerID"])){
 		$query = "DELETE FROM customer WHERE customerID = '".$_POST["customerID"]."'";
 		$result = mysqli_query($connection, $query);
+		$row = mysqli_fetch_assoc($result);
 		if (!$result){
 			echo mysqli_error($connection);
-		} else if (mysqli_fetch_assoc($result) == FALSE){
+		} else if ($row = FALSE){
 			echo ("customer id does not exist");
 		
 		
