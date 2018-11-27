@@ -28,7 +28,7 @@ function deleteCustomer(){
 		$result = mysqli_query($connection, $query);
 		if (!$result){
 			echo mysqli_error($connection);
-		} else if (!mysqli_affected_rows()){
+		} else if (!mysqli_affected_rows($result)){
 			echo ("customer id does not exist");
 		
 		
