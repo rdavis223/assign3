@@ -26,7 +26,7 @@ function insert(){
 	if (isset($_POST["customerID"])){
 		$query1 = "SELECT * FROM customer WHERE customerID = '".$_POST["customerID"]."'";
 		$result1 = mysqli_query($connection,$query1);
-		$query2 = "SELECT * FROM customer WHERE customerID = '".$_POST["customerID"]."'";
+		$query2 = "SELECT * FROM customer WHERE productID = '".$_POST["productID"]."'";
 		$result2 = mysqli_query($connection,$query2);
 		
 		
