@@ -31,12 +31,11 @@ function totalSales(){
 		include 'connectdb.php';
 		
 		$query1 = "SELECT * FROM product WHERE productID = '".$_POST["productID"]."'";
-		$result1 = mysqli_query($connection, $query);
+		$result1 = mysqli_query($connection, $query1);
 		
 		if ($result1->num_rows == 0){
 			echo "productID does not exist";	
 		} else {
-			
 		$query = "SELECT description, purchase.quantity, cost FROM purchase INNER JOIN product ON product.productID = purchase.productID WHERE product.productID = '".$_POST["productID"]."'";
 		$result = mysqli_query($connection, $query);
 		if (!$result){
