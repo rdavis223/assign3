@@ -25,8 +25,7 @@ function insert(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
 		
-		
-		$query1 = "SELECT * FROM product WHERE productID = '".$_POST["productID"]."'";
+		$query1 = "SELECT * FROM customer WHERE customerID = '".$_POST["productID"]."'";
 		$result1 = mysqli_query($connection, $query);
 		if ($result1->num_rows == 0){
 			$query = "INSERT INTO customer VALUES ('".$_POST["customerID"]."','".$_POST["firstName"]."','".$_POST["lastName"]."','".$_POST["city"]."','".$_POST["agentID"]."','".$_POST["phone"]."',"."NULL".")";
