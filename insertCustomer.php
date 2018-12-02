@@ -24,19 +24,23 @@
 function insert(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
-		$query1 = "SELECT * FROM customer WHERE customerID = '".$_POST["customerID"]."'";
-		$result1 = mysqli_query($connection,$query1);
 		
+		
+		$query1 = "SELECT * FROM product WHERE productID = '".$_POST["productID"]."'";
+		$result1 = mysqli_query($connection, $query);
 		if ($result1->num_rows == 0){
-		$query = "INSERT INTO customer VALUES ('".$_POST["customerID"]."','".$_POST["firstName"]."','".$_POST["lastName"]."','".$_POST["city"]."','".$_POST["agentID"]."','".$_POST["phone"]."',"."NULL".")";
-		$result = mysqli_query($connection,$query);
+			$query = "INSERT INTO customer VALUES ('".$_POST["customerID"]."','".$_POST["firstName"]."','".$_POST["lastName"]."','".$_POST["city"]."','".$_POST["agentID"]."','".$_POST["phone"]."',"."NULL".")";
+			$result = mysqli_query($connection,$query);
 		if (!$result) {
 			echo mysqli_error($connection);
 		} else {
 			echo "Insert successful";	
 		
 		}
-	}
+		} else {
+			echo "customerID already exists";
+		}
+		
 		
 		
 	}
