@@ -24,6 +24,19 @@
 function insert(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
+		$query1 = "SELECT * FROM customer WHERE customerID = '".$_POST["customerID"]."'";
+		$result1 = mysqli_query($connection,$query1);
+		$query2 = "SELECT * FROM customer WHERE customerID = '".$_POST["customerID"]."'";
+		$result2 = mysqli_query($connection,$query2);
+		
+		
+		if ($result1->num_rows == 0){
+			echo "customerID does not exist";
+		} else if ($result2->num_rows == 0){
+			echo "productID does not exist";
+		
+		} else {
+		
 		$query = "SELECT * FROM purchase WHERE productID = ".$_POST["productID"]." and customerID = ".$_POST["customerID"];
 		$result = mysqli_query($connection,$query);
 		if ($result->num_rows == 0 || !$result) {
@@ -53,6 +66,7 @@ function insert(){
 		}
 		
 		
+	}
 	}
 }
 insert();
