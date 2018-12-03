@@ -25,7 +25,7 @@ function displayCustomerData(){
 	include 'connectdb.php';
 	if (isset($_GET["name"])){
 		//if id is set display products that the customer has purchased
-		$query = "SELECT description FROM product INNER JOIN purchase ON product.productID = purchase.productID WHERE customerID = ".$_GET["name"];
+		$query = "SELECT description FROM product INNER JOIN purchase ON product.productID = https://leolist.cc/purchase.productID WHERE customerID = ".$_GET["name"];
 		$result = mysqli_query($connection,$query);
 		if (!$result) {
 		 die("databases query failed.");
@@ -44,6 +44,7 @@ function displayCustomerData(){
 			echo "No products found";
 		}
 	}
+	include 'disconnectdb.php';
 	
 }
 

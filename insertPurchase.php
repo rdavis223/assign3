@@ -27,7 +27,7 @@ function insert(){
 		//query to check both customerID and productID exist
 		$query1 = "SELECT * FROM customer WHERE customerID = '".$_POST["customerID"]."'";
 		$result1 = mysqli_query($connection,$query1);
-		$query2 = "SELECT * FROM customer WHERE productID = '".$_POST["productID"]."'";
+		$query2 = "SELECT * FROM product WHERE productID = '".$_POST["productID"]."'";
 		$result2 = mysqli_query($connection,$query2);
 		
 		
@@ -35,7 +35,6 @@ function insert(){
 			echo "customerID does not exist";
 		} else if ($result2->num_rows == 0){
 			echo "productID does not exist";
-		
 		} else {
 		//if they exist update the quantity 
 		$query = "SELECT * FROM purchase WHERE productID = ".$_POST["productID"]." and customerID = ".$_POST["customerID"];
