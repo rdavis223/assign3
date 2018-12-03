@@ -29,6 +29,7 @@
 function quantitySearch(){
 	include 'connectdb.php';
 	if (isset($_POST["quantity"])){
+		//query all products over a given quantity and display those products in a list
 		$query = "SELECT customer.firstName, customer.lastName, purchase.quantity, product.description FROM (customer INNER JOIN purchase ON customer.customerID = purchase.customerID) INNER JOIN product ON purchase.productID = product.productID WHERE purchase.quantity > ".$_POST["quantity"] ;
 		$result = mysqli_query($connection, $query);
 		if (!$result){
@@ -50,6 +51,7 @@ function quantitySearch(){
 		
 		
 	}
+	include 'disconnectdb.php';
 }
 quantitySearch();
 

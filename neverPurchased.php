@@ -23,11 +23,13 @@
 	<?php
 function neverPurchased(){
 	include 'connectdb.php';
+	//query all products that have never been purchased
 	$query = "SELECT description FROM product WHERE product.productID NOT IN (SELECT purchase.productID FROM purchase)";
 	$result = mysqli_query($connection, $query);
 	if (!$result){
 		echo mysqli_error($connection);
 	} else {
+			//list these products
 			$flag = 0;
 			echo "The following products have never been purchased";
 			while ($row =mysqli_fetch_assoc($result)) {
@@ -41,6 +43,7 @@ function neverPurchased(){
 				echo "No products to show";
 		}
 	}
+	include 'disconnectdb.php';
 }
 neverPurchased();
 

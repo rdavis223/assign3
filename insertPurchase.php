@@ -24,6 +24,7 @@
 function insert(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
+		//query to check both customerID and productID exist
 		$query1 = "SELECT * FROM customer WHERE customerID = '".$_POST["customerID"]."'";
 		$result1 = mysqli_query($connection,$query1);
 		$query2 = "SELECT * FROM customer WHERE productID = '".$_POST["productID"]."'";
@@ -36,10 +37,11 @@ function insert(){
 			echo "productID does not exist";
 		
 		} else {
-		
+		//if they exist update the quantity 
 		$query = "SELECT * FROM purchase WHERE productID = ".$_POST["productID"]." and customerID = ".$_POST["customerID"];
 		$result = mysqli_query($connection,$query);
 		if ($result->num_rows == 0 || !$result) {
+			//if no purchase exists for this product and customer then create one
 			$query = "INSERT INTO purchase VALUES(".$_POST["productID"].",".$_POST["customerID"].",".$_POST["quantity"].")";
 			$result = mysqli_query($connection,$query);
 			if (!$result){
@@ -50,6 +52,7 @@ function insert(){
 			
 		} else {
 			if ($_POST["quantity"] > 0){
+				//if a purchase already exists then add the given quantity to the current quantity
 				$query = "UPDATE purchase SET quantity = quantity + ".$_POST["quantity"]." WHERE customerID = ".$_POST["customerID"]." and productID = ".$_POST["productID"];
 				$result = mysqli_query($connection,$query);
 				if (!$result){
@@ -68,6 +71,7 @@ function insert(){
 		
 	}
 	}
+	include 'disconnectdb.php';
 }
 insert();
 

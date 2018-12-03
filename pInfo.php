@@ -37,10 +37,12 @@
 function displayData(){
 	include 'connectdb.php';
 	$query = "";
+	//if isnt set use default order
 	if (!isset($_POST["orderBy"])){
 		$query = "SELECT * FROM product ORDER BY cost ASC";
 	} 
 	else {
+		//otherwise sort by form input
 		echo "Sorting by ".$_POST["sortBy"]."|Ordering By: ".$_POST["orderBy"];
 		$query = "SELECT * FROM product ORDER BY ".$_POST[sortBy]." ".$_POST[orderBy];
 	}
@@ -50,6 +52,7 @@ function displayData(){
 	}
 	echo "<br> Data displayed as productID|description|cost|quantity";
 	echo "<ol>";
+	//list results
 	while ($row = mysqli_fetch_assoc($result)) {
 		echo "<li>";
 		echo implode("|", $row);
@@ -58,6 +61,7 @@ function displayData(){
 	}
 	mysqli_free_result($result);
 	echo "</ol>";
+	include 'disconnectdb.php';
 	}
 	displayData();
 

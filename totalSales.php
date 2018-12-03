@@ -27,15 +27,17 @@
 	</form>
 	<?php
 function totalSales(){
+	//if product id is set
 	if (isset($_POST["productID"])){
 		include 'connectdb.php';
-		
+		//query to check if the product ID dosen't exist
 		$query1 = "SELECT * FROM product WHERE productID = '".$_POST["productID"]."'";
 		$result1 = mysqli_query($connection, $query1);
 		
 		if ($result1->num_rows == 0){
 			echo "productID does not exist";	
 		} else {
+		// do inner join product with purchase
 		$query = "SELECT description, purchase.quantity, cost FROM purchase INNER JOIN product ON product.productID = purchase.productID WHERE product.productID = '".$_POST["productID"]."'";
 		$result = mysqli_query($connection, $query);
 		if (!$result){
@@ -48,22 +50,20 @@ function totalSales(){
 				$totalCost = $totalCost + $row["cost"] *$row["quantity"];
 				$totalUnits = $totalUnits + $row["quantity"];
 				$desc = $row["description"];
+				//add the costs and units for totals
 				while ($row =mysqli_fetch_assoc($result)) {
 					$totalCost = $totalCost + $row["cost"] * $row["quantity"];
 					$totalUnits = $totalUnits + $row["quantity"];
 			}
-			if ($desc == ""){
-				echo "No product found for productID";
-			
-			} else {
-			
+		
+			//display values
 			echo "<li>Product: ".$desc."</li>";
 			echo "<li>Units: ".$totalUnits."</li>";
 			echo "<li>Sales: $".$totalCost."</li>";
-			}
 				
 		}
 		}
+	include 'disconnectdb.php';
 	}
 }
 

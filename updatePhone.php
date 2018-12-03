@@ -23,6 +23,7 @@
 	<?php
 function getPhone(){
 	include 'connectdb.php';
+	//if customerID is set display the old phone number
 	if (isset($_POST["customerID"])){
 		$query = "SELECT phone FROM customer WHERE customerID = ".$_POST["customerID"];
 		$result = mysqli_query($connection,$query);
@@ -38,9 +39,13 @@ function getPhone(){
 		
 		
 	}
+	include 'disconnectdb.php';
 }
 function updatePhone(){
+	
+	
 	include 'connectdb.php';
+	//if phone number is set from the form update phone number and display message if successful
 	if (isset($_POST["phone"])){
 		$query = "UPDATE customer SET phone = '".$_POST["phone"]."' WHERE customerID = ".$_SESSION["customerID"];
 		$result = mysqli_query($connection,$query);
@@ -55,9 +60,11 @@ function updatePhone(){
 		
 		
 	}
+	include 'disconnectdb.php';
 
 }
 function display(){
+	//display new phone number form if customerID is set, if nothing is set display customerID input form
 	echo "<form action='updatePhone.php'; method='post'>";
 	if (isset($_POST["customerID"])){
 		echo "Please enter new phone number for the customer <br>";

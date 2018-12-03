@@ -24,6 +24,8 @@
 function deleteCustomer(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
+		
+		//check to make sure the customerID exists
 		$query = "SELECT * FROM customer WHERE customerID = '".$_POST["customerID"]."'";
 		$result = mysqli_query($connection, $query);
 		if (!$result){
@@ -32,7 +34,7 @@ function deleteCustomer(){
 			echo "CustomerID does not exist";
 		} else {
 		
-		
+		//if it exists delete the customer
 		$query2 = "DELETE FROM customer WHERE customerID = '".$_POST["customerID"]."'";
 		$result2 = mysqli_query($connection, $query);
 		if (!$result2){
@@ -44,6 +46,7 @@ function deleteCustomer(){
 		
 		
 	}
+	include 'disconnectdb.php';
 }
 deleteCustomer();
 

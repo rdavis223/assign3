@@ -24,10 +24,12 @@
 function insert(){
 	include 'connectdb.php';
 	if (isset($_POST["customerID"])){
-		
+		//query customerID to check for duplicates 
 		$query1 = "SELECT * FROM customer WHERE customerID = '".$_POST["customerID"]."'";
 		$result1 = mysqli_query($connection, $query1);
 		if ($result1->num_rows == 0){
+			
+			//insert customer info from form into database
 			$query = "INSERT INTO customer VALUES ('".$_POST["customerID"]."','".$_POST["firstName"]."','".$_POST["lastName"]."','".$_POST["city"]."','".$_POST["agentID"]."','".$_POST["phone"]."',"."NULL".")";
 			$result = mysqli_query($connection,$query);
 		if (!$result) {
@@ -43,6 +45,7 @@ function insert(){
 		
 		
 	}
+	include 'disconnectdb.php';
 }
 insert();
 

@@ -24,6 +24,7 @@
 function displayCustomerData(){
 	include 'connectdb.php';
 	if (isset($_GET["name"])){
+		//if id is set display products that the customer has purchased
 		$query = "SELECT description FROM product INNER JOIN purchase ON product.productID = purchase.productID WHERE customerID = ".$_GET["name"];
 		$result = mysqli_query($connection,$query);
 		if (!$result) {
@@ -48,6 +49,7 @@ function displayCustomerData(){
 
 function displayData(){
 	include 'connectdb.php';
+	//display a list of customers as GET links
 	$query = "SELECT customerID, firstName, lastName, city, agentID, phone FROM customer ORDER BY lastName";
 	$result = mysqli_query($connection,$query);
 	if (!$result) {
@@ -68,6 +70,7 @@ function displayData(){
 	}
 	mysqli_free_result($result);
 	echo "</ol>";
+	include 'disconnectdb.php';
 	}
 	displayCustomerData();
 	displayData();
