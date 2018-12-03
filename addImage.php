@@ -30,6 +30,7 @@
 function setImage(){
 	$_SESSION["menu"] = 0;
 	include 'connectdb.php';
+	// if image url is set then set the customer Image
 	if(isset($_POST["URL"])){
 		$query = "UPDATE customer SET cusImage = '".$_POST["URL"]."' WHERE customerID = '".$_SESSION["ID"]."'";
 		$result = mysqli_query($connection,$query);
@@ -41,12 +42,14 @@ function setImage(){
 		}
 		
 	}
+	include 'disconnectdb.php';
 
 }
 
 
 function getImage(){
 	include 'connectdb.php';
+	// after clicking on a customer, if the customer has an image display it.. otherwise display the form to set an image
 	if (isset($_GET["ID"])){
 		$_SESSION["ID"] = $_GET["ID"];
 		$query = "SELECT cusImage FROM customer WHERE customerID = '".$_GET["ID"]."'";
@@ -102,11 +105,13 @@ function checkImage(val) {
 		
 		
 	}
+	include 'disconnectdb.php';
 	
 }
 
 function displayData(){
 	include 'connectdb.php';
+	//if the set image form is not being displayed, display the menu with GET links for each of the customers
 	if ($_SESSION["menu"] == 0){
 	$query = "SELECT customerID, firstName, lastName, city, agentID, phone FROM customer ORDER BY lastName";
 	$result = mysqli_query($connection,$query);
@@ -129,7 +134,10 @@ function displayData(){
 	mysqli_free_result($result);
 	echo "</ol>";
 	}
+	include 'disconnectdb.php';
 	}
+	
+	
 	session_start();
 	setImage();
 	getImage();
